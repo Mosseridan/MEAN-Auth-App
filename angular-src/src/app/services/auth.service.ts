@@ -27,7 +27,7 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-type', 'application/json');
-    return this.http.get('http://localhost:3000/users/profile', {headers: headers}).map((res) => res.json());
+    return this.http.get('users/profile', {headers: headers}).map((res) => res.json());
   }
 
   storeUserData(token, user){
