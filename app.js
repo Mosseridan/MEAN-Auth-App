@@ -23,11 +23,12 @@ mongoose.connection.on('error', (err) =>
 const app = express();
 
 // Port
-var port = 3000; 
-for(let i = 3; i < process.argv.length; i++){
-    if(process.argv[i-1] === '-p' && Number.isInteger(Number(process.argv[i])))
-        port = Number(process.argv[i]);
-}
+const port = process.env.PORT || 8080;
+// var port = 3000; 
+// for(let i = 3; i < process.argv.length; i++){
+//     if(process.argv[i-1] === '-p' && Number.isInteger(Number(process.argv[i])))
+//         port = Number(process.argv[i]);
+// }
 
 // CORS middleware
 app.use(cors());
