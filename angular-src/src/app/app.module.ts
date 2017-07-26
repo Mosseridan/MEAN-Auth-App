@@ -14,17 +14,20 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 // Services
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes = [
   {path: '', component: HomeComponent},
-  {path: 'dashboard', component: DashboardComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'profile', component: ProfileComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: '**', component: PagenotfoundComponent}
 ]
 
 @NgModule({
@@ -35,7 +38,8 @@ const appRoutes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ const appRoutes = [
   ],
   providers: [
     ValidateService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
