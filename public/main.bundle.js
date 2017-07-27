@@ -184,7 +184,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Dashboard</h2>\n<p>Welcome to your dashboard</p>"
+module.exports = "<h2 class=\"page-header\">Dashboard</h2>\r\n<p>Welcome to your dashboard</p>"
 
 /***/ }),
 
@@ -245,7 +245,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1> MEAN Auth App</h1>\n  <p class=\"lead\">Welcome to our custome MEAN authentication application built from scrtch</p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/login']\">Login</a> \n    <a class=\"btn btn-info\" [routerLink]=\"['/register']\">Register</a> \n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-md-4\">\n    <h3>Express Backend</h3>\n    <p>Arock silid Node.js/Express Server using Mongoose to orgenize models and query the database</p>\n  </div>\n   <div class=\"col-md-4\">\n    <h3>Angular-CLI</h3>\n    <p>Angular-CLI to generate components, services and more. loacl dev server easy comilation</p>\n  </div>\n   <div class=\"col-md-4\">\n    <h3>JWT Tokens</h3>\n    <p>Full featured authentication using JSON web tokens. Login and store user data</p>\n  </div>\n</div>\n"
+module.exports = "<div class=\"jumbotron text-center\">\r\n  <h1> MEAN Auth App</h1>\r\n  <p class=\"lead\">Welcome to our custome MEAN authentication application built from scrtch</p>\r\n  <div>\r\n    <a class=\"btn btn-primary\" [routerLink]=\"['/login']\">Login</a> \r\n    <a class=\"btn btn-info\" [routerLink]=\"['/register']\">Register</a> \r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-md-4\">\r\n    <h3>Express Backend</h3>\r\n    <p>Arock silid Node.js/Express Server using Mongoose to orgenize models and query the database</p>\r\n  </div>\r\n   <div class=\"col-md-4\">\r\n    <h3>Angular-CLI</h3>\r\n    <p>Angular-CLI to generate components, services and more. loacl dev server easy comilation</p>\r\n  </div>\r\n   <div class=\"col-md-4\">\r\n    <h3>JWT Tokens</h3>\r\n    <p>Full featured authentication using JSON web tokens. Login and store user data</p>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -306,7 +306,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Login</h2>\n<form (submit)=\"onLoginSubmit()\">\n  <div class=\"form-group\">\n    <label>Username</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password</label>\n    <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n</form>"
+module.exports = "<h2 class=\"page-header\">Login</h2>\r\n<form (submit)=\"onLoginSubmit()\">\r\n  <div class=\"form-group\">\r\n    <label>Username</label>\r\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Password</label>\r\n    <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\r\n  </div>\r\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\r\n</form>"
 
 /***/ }),
 
@@ -364,7 +364,7 @@ var LoginComponent = (function () {
             }
             else {
                 _this.flashMessage.show(data.msg, { cssClass: 'alert-danger', timeout: 5000 });
-                _this.router.navigate(['login']);
+                _this.router.navigate(['/']);
             }
         });
     };
@@ -405,7 +405,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-content\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">MEAN auth app</a>\n    </div>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbar-content\">\n      <ul class=\"nav navbar-nav\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\n      </ul>\n      <!--form class=\"navbar-form navbar-left\" role=\"search\">\n        <div class=\"form-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n        </div>\n        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n      </form-->\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/dashboard']\">Dashboard</a></li>\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/profile']\">Profile</a></li>\n        <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/login']\">Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/register']\">Register</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-default\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#nav-bar-content\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n      </button>\r\n      <a class=\"navbar-brand\">MEAN auth app</a>\r\n    </div>\r\n\r\n    <div class=\"collapse navbar-collapse\" id=\"nav-bar-content\">\r\n      <ul class=\"nav navbar-nav\">\r\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\" data-toggle=\"collapse\" data-target=\"#nav-bar-content\"><a [routerLink]=\"['/']\">Home</a></li>\r\n      </ul>\r\n      <!--form class=\"navbar-form navbar-left\" role=\"search\">\r\n        <div class=\"form-group\">\r\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\r\n        </div>\r\n        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n      </form-->\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\" data-toggle=\"collapse\" data-target=\"#nav-bar-content\"><a [routerLink]=\"['/dashboard']\">Dashboard</a></li>\r\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\" data-toggle=\"collapse\" data-target=\"#nav-bar-content\"><a [routerLink]=\"['/profile']\">Profile</a></li>\r\n        <li *ngIf=\"authService.loggedIn()\" data-toggle=\"collapse\" data-target=\"#nav-bar-content\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\r\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\" data-toggle=\"collapse\" data-target=\"#nav-bar-content\"><a [routerLink]=\"['/login']\">Login</a></li>\r\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\" data-toggle=\"collapse\" data-target=\"#nav-bar-content\"><a [routerLink]=\"['/register']\">Register</a></li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>"
 
 /***/ }),
 
@@ -483,7 +483,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/pagenotfound/pagenotfound.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1>404 PAGE NOT FOUND!</h1>\n  <p class=\"lead\">The URL you requested dose not exist in this server.</p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/']\">Go back to the home page</a> \n  </div>\n</div>"
+module.exports = "<div class=\"jumbotron text-center\">\r\n  <h1>404 PAGE NOT FOUND!</h1>\r\n  <p class=\"lead\">The URL you requested dose not exist in this server.</p>\r\n  <div>\r\n    <a class=\"btn btn-primary\" [routerLink]=\"['/']\">Go back to the home page</a> \r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -544,7 +544,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\">\n  <h2 class=\"page-header\">{{user.name}}</h2>\n  <ul class=\"list-group\">\n    <li class= \"list-group-item\">Username:{{user.username}}</li>\n    <li class= \"list-group-item\">Email:{{user.email}}</li>\n  </ul>\n</div>"
+module.exports = "<div *ngIf=\"user\">\r\n  <h2 class=\"page-header\">{{user.name}}</h2>\r\n  <ul class=\"list-group\">\r\n    <li class= \"list-group-item\">Username:{{user.username}}</li>\r\n    <li class= \"list-group-item\">Email:{{user.email}}</li>\r\n  </ul>\r\n</div>"
 
 /***/ }),
 
@@ -614,7 +614,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/register/register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Register</h2>\n<form (submit)=\"onRegisterSubmit()\">\n  <div class=\"form-group\">\n    <label>Name</label>\n    <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Email</label>\n    <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Username</label>\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\"  class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password</label>\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n \n"
+module.exports = "<h2 class=\"page-header\">Register</h2>\r\n<form (submit)=\"onRegisterSubmit()\">\r\n  <div class=\"form-group\">\r\n    <label>Name</label>\r\n    <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Email</label>\r\n    <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Username</label>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\"  class=\"form-control\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Password</label>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\r\n  </div>\r\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\r\n</form>\r\n \r\n"
 
 /***/ }),
 
