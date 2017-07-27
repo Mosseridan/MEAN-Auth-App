@@ -364,7 +364,7 @@ var LoginComponent = (function () {
             }
             else {
                 _this.flashMessage.show(data.msg, { cssClass: 'alert-danger', timeout: 5000 });
-                _this.router.navigate(['/']);
+                _this.router.navigate(['/login']);
             }
         });
     };
